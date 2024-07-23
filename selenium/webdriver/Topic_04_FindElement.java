@@ -40,8 +40,7 @@ public class Topic_04_FindElement {
         // Sẽ đi tìm nguyên nhân khách quan
         // Code mình viết sai
         // Thiếu thời gian (time out)
-        // Page chưa load xong
-        // ..
+        // Page chưa load xong..
 
         String sucessMessageText = driver.findElement(By.xpath("//li[@class='sucess-msg']//span")).getText();
         // Samsung Galaxy was added to your shopping cart.
