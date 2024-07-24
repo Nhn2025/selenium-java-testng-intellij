@@ -42,7 +42,7 @@ public class Topic_04_FindElement {
         // Thiếu thời gian (time out)
         // Page chưa load xong..
 
-        String sucessMessageText = driver.findElement(By.xpath("//li[@class='sucess-msg']//span")).getText();
+        String sucessMessageText = driver.findElement(By.xpath("//li[@class='success-msg']//span")).getText();
         // Samsung Galaxy was added to your shopping cart.
         Assert.assertEquals(sucessMessageText, "Samsung Galaxy was added to your shopping cart.");
     }
