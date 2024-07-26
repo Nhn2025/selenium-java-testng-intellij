@@ -54,11 +54,6 @@ public class Topic_05_Selenium_Text {
         Assert.assertEquals(concatText, "Hello \"John\", What's happened?");
     }
 
-    @Test
-    public void TC_02_() {
-
-    }
-
     @AfterClass
     public void afterClass() {
         driver.quit();
