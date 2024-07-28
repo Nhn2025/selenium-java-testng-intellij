@@ -68,7 +68,7 @@ public class Topic_04_XPath_Css {
     public void Register_03_Incorrect_Confirm_Email() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
-        // Invalid confirm email address
+        // Incorrect confirm email address
         driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
         driver.findElement(By.id("txtEmail")).sendKeys("joe@biden.com");
         driver.findElement(By.id("txtCEmail")).sendKeys("joebiden");
@@ -101,6 +101,26 @@ public class Topic_04_XPath_Css {
     @Test
     public void Register_05_Incorrect_Confirm_Password() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+
+        // Incorrect Confirm password less than 6 chars
+        driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
+        driver.findElement(By.id("txtEmail")).sendKeys("joe@biden.com");
+        driver.findElement(By.id("txtCEmail")).sendKeys("joe@biden.com");
+        driver.findElement(By.id("txtPassword")).sendKeys("123456");
+        driver.findElement(By.id("txtCPassword")).sendKeys("1234");
+        driver.findElement(By.id("txtPhone")).sendKeys("0388465783");
+        driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
+
+        // Verify
+        Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(), "Mật khẩu phải có ít nhất 6 ký tự");
+
+        // Incorrect Confirm password more than 6 chars
+        driver.findElement(By.id("txtCPassword")).clear();
+        driver.findElement(By.id("txtCPassword")).sendKeys("1234567");
+        driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
+
+        // Verify
+        Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(), "Mật khẩu bạn nhập không khớp");
     }
 
     @Test
