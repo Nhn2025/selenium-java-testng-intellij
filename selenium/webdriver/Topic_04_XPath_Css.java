@@ -84,6 +84,18 @@ public class Topic_04_XPath_Css {
     @Test
     public void Register_04_Invalid_Password() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+
+        // Invalid password
+        driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
+        driver.findElement(By.id("txtEmail")).sendKeys("joe@biden.com");
+        driver.findElement(By.id("txtCEmail")).sendKeys("joe@biden.com");
+        driver.findElement(By.id("txtPassword")).sendKeys("1234");
+        driver.findElement(By.id("txtCPassword")).sendKeys("1234");
+        driver.findElement(By.id("txtPhone")).sendKeys("0388465783");
+        driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
+
+        // Verify
+        Assert.assertEquals(driver.findElement(By.id("txtPassword-error")).getText(), "Mật khẩu phải có ít nhất 6 ký tự");
     }
 
     @Test
