@@ -67,6 +67,18 @@ public class Topic_04_XPath_Css {
     @Test
     public void Register_03_Incorrect_Confirm_Email() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+
+        // Invalid confirm email address
+        driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
+        driver.findElement(By.id("txtEmail")).sendKeys("joe@biden.com");
+        driver.findElement(By.id("txtCEmail")).sendKeys("joebiden");
+        driver.findElement(By.id("txtPassword")).sendKeys("123456");
+        driver.findElement(By.id("txtCPassword")).sendKeys("123456");
+        driver.findElement(By.id("txtPhone")).sendKeys("0388465783");
+        driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
+
+        // Verify
+        Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
     }
 
     @Test
