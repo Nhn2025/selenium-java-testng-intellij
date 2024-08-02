@@ -1,12 +1,13 @@
 package webdriver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -69,9 +70,60 @@ public class Topic_06_WebBrowser_Commands {
         // Nó sẽ đi tìm vs loại By nào và trả về nhiều element nếu như được tìm thấy (List WebElement)
         // ko được tìm thấy - ko bị fail - trả về 1 List rỗng (0 element)
         List<WebElement> checkboxs = driver.findElements(By.xpath("//input[@type='checkbox']"));
-        checkboxs.get(1).click();
 
-        driver.findElement(By.cssSelector("button#login")).click();
+        // Tại sao lại cần lấy dữ liệu ra làm gì ?
+        // Dùng để lấy ra Url của màn hình/ page hiện tại đang dùng
+        // Home Page
+        driver.getCurrentUrl();
+
+        // Lấy ra page sourse HTML/ CSS/ JS của page hiện tại
+        // Verify 1 cách tương đối
+        driver.getPageSource();
+        driver.getPageSource().contains("The Apple and Google Play logos are trademarks of their respective owners");
+        Assert.assertTrue( driver.getPageSource().contains("The Apple and Google Play logos are trademarks of their respective owners"));
+
+        // Lấy ra title của page hiện tại
+        driver.getTitle();
+
+        // Lấy ra ID của cửa sổ/ tab hiện tại
+        // Handle Window/ Tab
+        driver.getWindowHandle();
+        driver.getWindowHandles();
+
+        // Cookies - Framwork
+        driver.manage().getCookies();
+
+        // Get ra những log ở Dev Tool - Framwork
+        driver.manage().logs().get(LogType.DRIVER);
+
+        // Apply cho việc tìm element (findElement và findElements)
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+        // Chờ cho page được load xong
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+
+        // Set trước khi dùng vs thư viện JavascriptExecute
+        // Inject 2 đoạn code JS vào trong Browser/ Element
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
+
+        // Selenium 4 mới có
+        driver.manage().timeouts().getImplicitWaitTimeout();
+        driver.manage().timeouts().getScriptTimeout();
+        driver.manage().timeouts().getPageLoadTimeout();
+
+        // Chạy full màn hình
+        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
+        driver.manage().window().minimize();
+
+        // Test Responsive (Resolution)
+        driver.manage().window().setSize(new Dimension(1366, 768));
+
+        driver.manage().window().getSize();
+
+        // Set cho browser ở vị trí nào so với độ phân giải màn hình (run trên màn hình có kích thước bao nhiêu)
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().getPosition();
     }
 
     @AfterClass
