@@ -12,6 +12,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -30,34 +32,29 @@ public class Topic_06_WebBrowser_Commands {
     public void beforeClass() {
         // Muốn dùng được thì phải khởi taọ
         // Nếu ko khởi tạo sẽ gặp lỗi: NullPointerException
-        driver = new FirefoxDriver();
-        driver =  new ChromeDriver();
+        driver = new FirefoxDriver(); // **
+        /* driver =  new ChromeDriver();
         driver = new SafariDriver();
-        driver = new InternetExplorerDriver();
+        driver = new InternetExplorerDriver();*/
 
-        // driver = new OperaDriver(); Selenium 4 không support
-        // driver = new HTMLUnit(); Headless browser
-        // Từ năm 2016: Chrome/ Firefox có support chạy dạng headless
-        // Headless: Crawl data (Data Analyst)/ Dev FE
-
-        // Selenium ver 3/2/1
+        // Selenium ver 3/2/1 (Deprecated)
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         // Selenium ver 4
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // **
         //        driver.manage().window().maximize();
     }
 
     @Test
-    public void TC_01_() {
+    public void TC_01_() throws MalformedURLException {
         // Mở ra 1 URL bất kỳ
         driver.get("https://www.facebook.com/");
 
         // Nhiều hơn 1 thì nó sẽ đóng cái nó đang active
-        driver.close();
+        driver.close(); // *
 
         // Đóng browser (ko care bao nhiêu tab/ window)
-        driver.quit();
+        driver.quit(); // **
 
         // 2 hàm này bị ảnh hưởng timeout của implicitWait
         // findElement/ findElements
@@ -65,16 +62,16 @@ public class Topic_06_WebBrowser_Commands {
         // Nó sẽ đi tìm vs loại By nào và trả về 1 element nếu như được tìm thấy
         // ko được tìm thấy: Fail tại step này - throw exception: NoSuchElement
         // Trả về 1 elemnt - nhiều thì chỉ trả thằng đầu tiên
-        WebElement emailAddressTextbox = driver.findElement(By.id("email"));
+        WebElement emailAddressTextbox = driver.findElement(By.id("email")); // **
 
         // Nó sẽ đi tìm vs loại By nào và trả về nhiều element nếu như được tìm thấy (List WebElement)
         // ko được tìm thấy - ko bị fail - trả về 1 List rỗng (0 element)
-        List<WebElement> checkboxs = driver.findElements(By.xpath("//input[@type='checkbox']"));
+        List<WebElement> checkboxs = driver.findElements(By.xpath("//input[@type='checkbox']")); // **
 
         // Tại sao lại cần lấy dữ liệu ra làm gì ?
         // Dùng để lấy ra Url của màn hình/ page hiện tại đang dùng
         // Home Page
-        driver.getCurrentUrl();
+        driver.getCurrentUrl(); // **
 
         // Lấy ra page sourse HTML/ CSS/ JS của page hiện tại
         // Verify 1 cách tương đối
@@ -87,20 +84,23 @@ public class Topic_06_WebBrowser_Commands {
 
         // Lấy ra ID của cửa sổ/ tab hiện tại
         // Handle Window/ Tab
-        driver.getWindowHandle();
-        driver.getWindowHandles();
+        driver.getWindowHandle(); // *
+        driver.getWindowHandles(); // *
 
         // Cookies - Framwork
-        driver.manage().getCookies();
+        driver.manage().getCookies(); // *
 
         // Get ra những log ở Dev Tool - Framwork
-        driver.manage().logs().get(LogType.DRIVER);
+        driver.manage().logs().get(LogType.DRIVER); // *
 
         // Apply cho việc tìm element (findElement và findElements)
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // **
 
         // Chờ cho page được load xong
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(0));
 
         // Set trước khi dùng vs thư viện JavascriptExecute
         // Inject 2 đoạn code JS vào trong Browser/ Element
@@ -113,7 +113,7 @@ public class Topic_06_WebBrowser_Commands {
 
         // Chạy full màn hình
         driver.manage().window().fullscreen();
-        driver.manage().window().maximize();
+        driver.manage().window().maximize(); // **
         driver.manage().window().minimize();
 
         // Test Responsive (Resolution)
@@ -124,6 +124,40 @@ public class Topic_06_WebBrowser_Commands {
         // Set cho browser ở vị trí nào so với độ phân giải màn hình (run trên màn hình có kích thước bao nhiêu)
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().getPosition();
+
+        // Điều hướng trang web
+        driver.navigate().back();
+        driver.navigate().refresh();
+        driver.navigate().forward();
+
+        // Thao tác vs history của web page (back/ forward)
+        driver.navigate().to("https://www.facebook.com/");
+        driver.navigate().to(new URL("https://www.facebook.com/"));
+
+        // Alert/ Window (Tab)/  Frame (iFrame) // *
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().dismiss();
+        driver.switchTo().alert().getText();
+        driver.switchTo().alert().sendKeys("Test");
+
+        // Lấy ra ID của cửa sổ/ tab hiện tại // *
+        // Handle Window/ Tab
+        String homePageWindowID = driver.getWindowHandle();
+        driver.switchTo().window(homePageWindowID);
+
+        // Switch/ handle frame (iframe) // *
+        // Index/ ID (name)/ ELement
+        driver.switchTo().frame(0);
+        driver.switchTo().frame("686");
+        driver.switchTo().frame(driver.findElement(By.id("")));
+
+        // Switch về HTML chứa frame trước đó
+        driver.switchTo().defaultContent();
+
+        // Từ frame trong đi ra frame ngoài chứa nó
+        driver.switchTo().parentFrame();
+
+        //
     }
 
     @AfterClass
