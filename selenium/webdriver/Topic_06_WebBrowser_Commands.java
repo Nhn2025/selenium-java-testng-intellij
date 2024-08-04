@@ -61,7 +61,7 @@ public class Topic_06_WebBrowser_Commands {
 
         // Nó sẽ đi tìm vs loại By nào và trả về 1 element nếu như được tìm thấy
         // ko được tìm thấy: Fail tại step này - throw exception: NoSuchElement
-        // Trả về 1 elemnt - nhiều thì chỉ trả thằng đầu tiên
+        // Trả về 1 element - nhiều thì chỉ trả thằng đầu tiên
         WebElement emailAddressTextbox = driver.findElement(By.id("email")); // **
 
         // Nó sẽ đi tìm vs loại By nào và trả về nhiều element nếu như được tìm thấy (List WebElement)
@@ -156,8 +156,6 @@ public class Topic_06_WebBrowser_Commands {
 
         // Từ frame trong đi ra frame ngoài chứa nó
         driver.switchTo().parentFrame();
-
-        //
     }
 
     @AfterClass
