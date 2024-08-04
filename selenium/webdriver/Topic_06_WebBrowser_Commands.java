@@ -46,7 +46,7 @@ public class Topic_06_WebBrowser_Commands {
     }
 
     @Test
-    public void TC_01_() throws MalformedURLException {
+    public void TC_01_Browser() throws MalformedURLException {
         // Mở ra 1 URL bất kỳ
         driver.get("https://www.facebook.com/");
 
