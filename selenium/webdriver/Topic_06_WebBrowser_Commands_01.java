@@ -1,12 +1,8 @@
 package webdriver;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogType;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -18,7 +14,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Topic_06_WebBrowser_Commands {
+public class Topic_06_WebBrowser_Commands_01 {
     // Các câu lệnh để thao tác vs Browser
     // driver.
 
