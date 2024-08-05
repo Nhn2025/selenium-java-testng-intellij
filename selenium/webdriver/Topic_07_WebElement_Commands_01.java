@@ -1,6 +1,5 @@
 package webdriver;
 
-import com.beust.ah.A;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -10,10 +9,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Topic_07_WebElement_Commands {
+public class Topic_07_WebElement_Commands_01 {
 
     WebDriver driver;
     private org.openqa.selenium.By By;
@@ -59,7 +57,7 @@ public class Topic_07_WebElement_Commands {
         Assert.assertFalse(driver.findElement(By.id("")).isSelected());
 
         // Dropdown (default/ custom)
-        Select selcet = new Select(driver.findElement(By.id("")));
+        Select select = new Select(driver.findElement(By.id("")));
 
         // Dùng để verify 1 element bất kì có hiển thị hay ko
         Assert.assertFalse(driver.findElement(By.id("")).isDisplayed()); // **
