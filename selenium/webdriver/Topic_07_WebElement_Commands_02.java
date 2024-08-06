@@ -170,7 +170,7 @@ public class Topic_07_WebElement_Commands_02 {
 
         // Case 7 - Empty
         driver.findElement(By.cssSelector("input#new_password")).clear();
-        driver.findElement(By.cssSelector("button#create-account-enabled")).click();
+        driver.findElement(By.cssSelector("input#new_password")).sendKeys("");
         sleepInSeconds(2);
 
         Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
