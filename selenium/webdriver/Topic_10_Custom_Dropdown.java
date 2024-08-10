@@ -167,7 +167,7 @@ public class Topic_10_Custom_Dropdown {
         //      Tìm element
         // List<WebElement> allItems = driver.findElements(By.cssSelector(childItemCss));
         List<WebElement> allItems = explicitWait.until(ExpectedConditions.
-                presenceOfAllElementsLocatedBy(By.cssSelector(childItemCss)));;
+                presenceOfAllElementsLocatedBy(By.cssSelector(childItemCss)));
         // allItems đang lưu trữ 19 item bên trong
         // 19 WebELement
 
