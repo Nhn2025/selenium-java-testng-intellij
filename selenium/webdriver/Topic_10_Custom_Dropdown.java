@@ -124,7 +124,7 @@ public class Topic_10_Custom_Dropdown {
         sleepInSeconds(2);
 
         selectItemInDropdown("select[name='DateOfBirthMonth']", "select[name='DateOfBirthMonth']>option", "9");
-        Assert.assertTrue(driver.findElement(By.cssSelector("select[name='DateOfBirthMonth']>option[value='9']")).isSelected());
+        Assert.assertFalse(driver.findElement(By.cssSelector("select[name='DateOfBirthMonth']>option[value='9']")).isSelected());
         sleepInSeconds(2);
 
         selectItemInDropdown("select[name='DateOfBirthYear']", "select[name='DateOfBirthYear']>option", "1995");

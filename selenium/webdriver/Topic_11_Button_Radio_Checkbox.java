@@ -50,7 +50,6 @@ public class Topic_11_Button_Radio_Checkbox {
         System.out.println("Background color Hexa = " + registerBackgroundHexa);
         System.out.println("Background color Hexa = " + registerBackgroundHexa.toUpperCase());
         System.out.println("Background color Hexa = " + registerBackgroundHexa.toLowerCase());
-        System.out.println("Background color RGB = " + registerBackgroundHexa);
 
         // Convert qua viết thường
         registerBackgroundHexa = registerBackgroundHexa.toLowerCase();
