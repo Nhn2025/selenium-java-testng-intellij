@@ -78,7 +78,7 @@ public class Topic_12_Checkbox_Radio {
 
     @Test
     public void TC_03_Select_All_Checkbox() {
-        driver.get("https://demos.telerik.com/kendo-ui/radiobutton/index");
+        driver.get("https://automationfc.github.io/multiple-fields/");
 
         List<WebElement> allCheckboxs = driver.findElements(By.cssSelector("div.form-single-column input[type='checkbox']"));
         // 29
