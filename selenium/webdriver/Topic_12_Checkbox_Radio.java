@@ -117,7 +117,7 @@ public class Topic_12_Checkbox_Radio {
 
         // Case 1:
         // Dùng thẻ input để click => Thẻ input bị che bởi 1 element khác => FAILED
-        // Webdriver click(): The elemnet must be visible, and ut must have a height and width greater than 0
+        // Webdriver click(): The element must be visible, and it must have a height and width greater than 0
         // isSelected only applies to input elements
 
         // Case 2:
@@ -144,6 +144,37 @@ public class Topic_12_Checkbox_Radio {
         // interface Webdriver
         // interface JavascriptExecutor
         // Ép kiểu interfce qua kiểu interface khác
+    }
+
+    @Test
+    public void TC_05_Custom_Google_Docs() {
+        driver.get("https://docs.google.com/forms/d/e/1FAIpQLSfiypnd69zhuDkjKgqvpID9kwO29UCzeCVrGGtbNPZXQok0jA/viewform");
+
+        By canThoRadio = By.xpath("//div[@aria-label='Cần Thơ']");
+        By quangNamCheckbox = By.xpath("//div[@aria-label='Quảng Nam']");
+        By quangBinhCheckbox = By.xpath("//div[@aria-label='Quảng Bình']");
+
+        // Verify radio is not selected
+        // Cách 1: Get thuộc tính ra
+        Assert.assertEquals(driver.findElement(canThoRadio).getAttribute("aria-checked"), "false");
+        // Cách 2: Kết hợp chung thuộc tính (rủi ro AssertFalse bị sai do giá trị thay đổi)
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@aria-label='Cần Thơ' and @aria-checked='false']")).isDisplayed());
+
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click()", driver.findElement(canThoRadio));
+        //driver.findElement(canThoRadio).click();
+        sleepInSeconds(2);
+
+        // Verify radio is selected
+        Assert.assertEquals(driver.findElement(canThoRadio).getAttribute("aria-checked"), "true");
+        // 30s - failed (k biết lý do)
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@aria-label='Cần Thơ' and @aria-checked='true']")).isDisplayed());
+
+        driver.findElement(quangNamCheckbox).click();
+        driver.findElement(quangBinhCheckbox).click();
+        sleepInSeconds(2);
+
+        Assert.assertEquals(driver.findElement(quangNamCheckbox).getAttribute("aria-checked"), "true");
+        Assert.assertEquals(driver.findElement(quangBinhCheckbox).getAttribute("aria-checked"), "true");
     }
 
     @AfterClass
