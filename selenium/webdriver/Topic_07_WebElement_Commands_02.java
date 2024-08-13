@@ -106,9 +106,11 @@ public class Topic_07_WebElement_Commands_02 {
         driver.findElement(By.cssSelector("input#email")).sendKeys("automationfc@gmail.com");
 
         // Case 1 - Empty
+        // Scroll riêng
         WebElement element = driver.findElement(By.cssSelector("button#create-account-enabled"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 
+        // Click dùng WebElement
         driver.findElement(By.cssSelector("button#create-account-enabled")).click();
         sleepInSeconds(2);
 
