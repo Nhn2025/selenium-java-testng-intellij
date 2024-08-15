@@ -9,6 +9,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="libraries" level="project" />
+    <orderEntry type="library" name="Selenium TestNG" level="project" />
+    <orderEntry type="library" name="selenium-devtools-v125-4.23.1" level="project" />
+    <orderEntry type="library" name="sourceDocs" level="project" />
+    <orderEntry type="library" name="selenium-firefox-driver-4.16.1-sources" level="project" />
   </component>
 </module>

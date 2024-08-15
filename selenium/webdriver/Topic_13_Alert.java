@@ -3,14 +3,13 @@ package webdriver;
 import org.apache.commons.codec.binary.Base64;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.HasDevTools;
-
-import org.openqa.selenium.devtools.v85.network.Network;
-import org.openqa.selenium.devtools.v85.network.model.Headers;
-
+import org.openqa.selenium.devtools.v127.network.Network;
+import org.openqa.selenium.devtools.v127.network.model.Headers;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,7 +39,7 @@ public class Topic_13_Alert {
     @BeforeClass
     public void beforeClass() {
         // driver = new FirefoxDriver();
-         driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -174,8 +173,9 @@ public class Topic_13_Alert {
 
         // Enable username/ password
         Map<String, Object> headers = new HashMap<String , Object>();
-        String basicAuthen = "Basic" + new String(new Base64().encode(String.format("%s:%s", username, password).getBytes()));
-        headers.put("Authozixation", basicAuthen);
+        String basicAuthen = "Basic " + new String(new Base64().encode(String.format("%s:%s", username, password).getBytes()));
+
+        headers.put("Authorization", basicAuthen);
 
         // Set to Header
         devTools.send(Network.setExtraHTTPHeaders(new Headers(headers)));
