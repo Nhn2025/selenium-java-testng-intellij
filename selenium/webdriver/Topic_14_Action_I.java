@@ -55,6 +55,7 @@ public class Topic_14_Action_I {
         // Dùng khi di chuyển sau đó mới click
         action.click(driver.findElement(By.xpath("//a[@class='desktop-categoryName' and text()='Home & Bath']"))).perform();
 
+        // Trang bị khoá do thực hiện Automation quá nhiều lần
         Assert.assertEquals(driver.findElement(By.cssSelector("span.breadcrumbs-crumb")).getText(), "Kids Home Bath");
     }
 
