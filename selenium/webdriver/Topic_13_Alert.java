@@ -10,6 +10,7 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.HasDevTools;
 import org.openqa.selenium.devtools.v127.network.Network;
 import org.openqa.selenium.devtools.v127.network.model.Headers;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -39,7 +40,8 @@ public class Topic_13_Alert {
     @BeforeClass
     public void beforeClass() {
         // driver = new FirefoxDriver();
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
+        // driver = new ChromeDriver();
 
         explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
