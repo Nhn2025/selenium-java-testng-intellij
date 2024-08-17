@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class Topic_18_Action_II {
+public class Topic_15_Action_II {
 
     WebDriver driver;
     Actions action;
@@ -84,6 +84,34 @@ public class Topic_18_Action_II {
         action.doubleClick(driver.findElement(By.xpath("//button[text()='Double click me']"))).perform();
 
         Assert.assertEquals(driver.findElement(By.cssSelector("p#demo")).getText(), "Hello Automation Guys!");
+    }
+
+    @Test
+    public void TC_04_Right_Click() throws InterruptedException {
+        driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+
+        // Click chuột phải vào button
+        action.contextClick(driver.findElement(By.cssSelector("span.context-menu-one"))).perform();
+        Thread.sleep(3000);
+
+        By quitContextBy = By.cssSelector("li.context-menu-icon-quit");
+
+        Assert.assertTrue(driver.findElement(quitContextBy).isDisplayed());
+
+        // Hover mouse
+        action.moveToElement(driver.findElement(quitContextBy)).perform();
+        Thread.sleep(3000);
+
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.context-menu-icon-quit.context-menu-visible.context-menu-hover")).isDisplayed());
+
+        // Click Quit
+        action.click(driver.findElement(quitContextBy)).perform();
+        Thread.sleep(3000);
+
+        // Đóng alert
+        driver.switchTo().alert().accept();
+
+        Assert.assertFalse(driver.findElement(quitContextBy).isDisplayed());
     }
 
     @AfterClass
