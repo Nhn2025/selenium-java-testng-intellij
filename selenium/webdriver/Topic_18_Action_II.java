@@ -68,7 +68,7 @@ public class Topic_18_Action_II {
         // 1 4 8 11 14 18
 
         // Nhả phím Ctrl ra
-        action.keyUp(Keys.CONTROL).perform();
+        action.keyUp(keys).perform();
 
         List<WebElement> allNumberSelected = driver.findElements(By.cssSelector("ol#selectable>li.ui-selected"));
         Assert.assertEquals(allNumberSelected.size(), 6);
@@ -79,8 +79,7 @@ public class Topic_18_Action_II {
         driver.get("https://automationfc.github.io/basic-form/index.html");
 
         // Cuộn trang để đưa phần tử vào vùng nhìn thấy
-        WebElement element = driver.findElement(By.xpath("//button[text()='Double click me']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//button[text()='Double click me']")));
 
         action.doubleClick(driver.findElement(By.xpath("//button[text()='Double click me']"))).perform();
 
