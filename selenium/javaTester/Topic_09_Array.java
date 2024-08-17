@@ -3,7 +3,7 @@ package javaTester;
 public class Topic_09_Array {
     int[] studentAge = {15, 10, 20, 22};
 
-    static String[] studentName = {"Nguyễn Văn AN", "Lê Văn Hoà"};
+    static String[] studentName = {"Nguyễn Văn An", "Lê Văn Hoà"};
 
     public static void main(String[] args) {
         String[] studentAddress = new String[5];
