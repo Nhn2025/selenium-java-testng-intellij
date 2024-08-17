@@ -18,7 +18,7 @@ public class Topic_14_Action_I {
     Actions action;
 
     @BeforeClass
-    public void beforeClass() {
+    public void initialBrowser() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         // Phóng to màn hình để không bị hover trúng các tool tip khác
@@ -64,11 +64,15 @@ public class Topic_14_Action_I {
         driver.get("https://www.fahasa.com/");
 
         action.moveToElement(driver.findElement(By.cssSelector("span.icon_menu"))).perform();
-
-        action.click(driver.findElement(By.xpath("//div[@class='fhs_column_stretch']//a[text()='Kỹ Năng Sống']"))).perform();
         Thread.sleep(2000);
 
-        Assert.assertEquals(driver.findElement(By.cssSelector("li.category213")).getText(), "KỸ NĂNG SỐNG");
+        // Cần hover 2 lần
+        action.moveToElement(driver.findElement(By.xpath("//span[text()='Hành Trang Đến Trường']"))).perform();
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//div[@class='fhs_column_stretch']//a[text()='Luyện Thi Môn Toán']")).click();
+
+        Assert.assertTrue(driver.findElement(By.xpath("//ol[@class='breadcrumb']//strong[text()='Toán']")).isDisplayed());
     }
 
     @AfterClass
