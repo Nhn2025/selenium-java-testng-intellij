@@ -78,6 +78,10 @@ public class Topic_18_Action_II {
     public void TC_03_Double_Click() {
         driver.get("https://automationfc.github.io/basic-form/index.html");
 
+        // Cuộn trang để đưa phần tử vào vùng nhìn thấy
+        WebElement element = driver.findElement(By.xpath("//button[text()='Double click me']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
         action.doubleClick(driver.findElement(By.xpath("//button[text()='Double click me']"))).perform();
 
         Assert.assertEquals(driver.findElement(By.cssSelector("p#demo")).getText(), "Hello Automation Guys!");
