@@ -49,6 +49,8 @@ public class Topic_17_Popup_01 {
         // Kiểm tra Login popup không hiển thị
         // Lưu ý: Trang đã bị đổi thành NOT_IN_DOM nên không verify được bằng display()
         // Assert.assertFalse(driver.findElement(loginPopup).isDisplayed());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        Assert.assertEquals(driver.findElements(By.cssSelector(".MuiPaper-root")).size(), 0);
     }
 
     @Test
