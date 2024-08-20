@@ -1,11 +1,20 @@
 package javaTester;
 
+import org.openqa.selenium.Keys;
+
 public class Topic_03_System_Info {
     public static void main(String args[]) {
+
+        // Lấy ra đường dẫn tương đối tại thư mục hiện tại
         String projectPath = System.getProperty("user.dir");
-        System.out.println(projectPath);
+        System.out.println(projectPath + "\\browserDrivers");
 
         String osName = System.getProperty("os.name");
-        System.out.println(osName);
+        Keys keys;
+
+        if (osName.startsWith("Windows"))
+            keys = Keys.CONTROL;
+        else
+            keys = Keys.COMMAND;
     }
 }
