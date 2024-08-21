@@ -66,10 +66,11 @@ public class Topic_18_Popup_02 {
         findELement(By.xpath("//button[text()='Danh sách khóa học']")).click();
         sleepInSeconds(3);
 
-       Assert.assertEquals(driver.findElement(By.cssSelector(".title-content>h1")).getText(), "LỊCh Khai GiẢNg ThÁNg 08");
+        Assert.assertEquals(driver.findElement(By.cssSelector(".title-content>h1")).getText(), "LỊCh Khai GiẢNg ThÁNg 08");
     }
 
     // Step nào thao tác ở màn hình Home mới gọi hàm này
+    // Đang thao tác tìm kiếm mà popup hiển thị
     public WebElement findELement(By locator) {
         // Nếu popup xuất hiện thì nó sẽ close đi
         if (driver.findElements(By.cssSelector("div.tve-leads-conversion-onject")).size() > 0 && driver.findElements(By.cssSelector("div.tve-leads-conversion-onject")).get(0).isDisplayed()) {
