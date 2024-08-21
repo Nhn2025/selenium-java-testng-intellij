@@ -129,7 +129,8 @@ public class Topic_20_Frame_Iframe {
         sleepInSeconds(3);
 
         // Switch về trang Default/ Parent chứa iframe
-        // CÓ switch hay KHÔNG đều chạy được
+        // Do nhấn vào continue chuyển sang 1 trang khác
+        // "CÓ" switch hay "KHÔNG" đều chạy được
         driver.switchTo().defaultContent();
 
         // Verify password hiển thị

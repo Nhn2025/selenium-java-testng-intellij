@@ -62,7 +62,8 @@ public class Topic_19_Shadow_DOM {
 
     @Test
     public void TC_02_shadow_DOM_Shopee() {
-      /*  driver.get("https://shopee.vn/");
+        // Shopee thay đổi requirement yêu cầu phải đăng nhập - tạm thời bỏ qua
+        /* driver.get("https://shopee.vn/");
         sleepInSeconds(5);
 
         WebElement shadowHostElement = driver.findElement(By.cssSelector("shopee-banner-popup-stateful"));
