@@ -30,7 +30,7 @@ public class Topic_19_Shadow_DOM {
         sleepInSeconds(5);
 
         // Đi theo đúng cấu trúc của HTML (từ HTML bên ngoài)
-        // 1. Get cái chứa shawdow host (div#shadow_host)
+        // 1. Get cái chứa shadow host (div#shadow_host)
         // 2. Từ cái get ra tìm vào (tính những cái thuộc shadow root)
 
         // driver = đại diện cho cái Real DOM (DOM bên ngoài)
@@ -62,7 +62,7 @@ public class Topic_19_Shadow_DOM {
 
     @Test
     public void TC_02_shadow_DOM_Shopee() {
-        driver.get("https://shopee.vn/?is_from_login=true");
+        driver.get("https://shopee.vn/");
         sleepInSeconds(5);
 
         WebElement shadowHostElement = driver.findElement(By.cssSelector("shopee-banner-popup-stateful"));
@@ -81,6 +81,7 @@ public class Topic_19_Shadow_DOM {
         }
 
         // Ko hiển thị/ đã bị đóng rồi qua step Search dữ liệu
+        // Ko còn nằm trong shadow nên dùng driver bình thường
         driver.findElement(By.cssSelector("input.shopee-searchbar-input__input")).sendKeys("iPhone 15 Pro Max");
         sleepInSeconds(3);
 
