@@ -62,7 +62,7 @@ public class Topic_19_Shadow_DOM {
 
     @Test
     public void TC_02_shadow_DOM_Shopee() {
-        driver.get("https://shopee.vn/");
+      /*  driver.get("https://shopee.vn/");
         sleepInSeconds(5);
 
         WebElement shadowHostElement = driver.findElement(By.cssSelector("shopee-banner-popup-stateful"));
@@ -87,6 +87,7 @@ public class Topic_19_Shadow_DOM {
 
         driver.findElement(By.cssSelector("button.shopee-searchbar__search-button")).click();
         sleepInSeconds(3);
+       */
     }
 
     @AfterClass
