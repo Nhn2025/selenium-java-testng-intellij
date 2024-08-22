@@ -107,7 +107,6 @@ public class Topic_21_Window_Tab {
 
         closeAllWindowWithoutParent(parentID);
         sleepInSeconds(3);
-
         //...
     }
 
