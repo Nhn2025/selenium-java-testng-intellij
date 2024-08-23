@@ -1,7 +1,6 @@
 package webdriver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -35,19 +34,19 @@ public class Topic_21_Window_Tab {
         sleepInSeconds(3);
 
         // Switch để quay lại trang Basic form
-        switchToWindowByID("Selenium WebDriver");
+        switchToWindowByTitle("Selenium WebDriver");
 
         driver.findElement(By.xpath("//a[text()='FACEBOOK']")).click();
         sleepInSeconds(3);
 
         // Switch để quay lại trang Facebook
-        switchToWindowByID("Facebook - login in or sign up");
+        switchToWindowByTitle("Facebook – log in or sign up");
 
         driver.findElement(By.cssSelector("input#email")).sendKeys("dam@gmail.com");
         sleepInSeconds(3);
 
         // Switch để quay lại trang Basic form
-        switchToWindowByID("Selenium WebDriver");
+        switchToWindowByTitle("Selenium WebDriver");
     }
 
     // Làm với tính chất tham khảo - trang dừng hoạt động
@@ -110,6 +109,38 @@ public class Topic_21_Window_Tab {
         //...
     }
 
+    @Test
+    public void TC_04_Selenium_Version_4() {
+        // driver đang ở trang Home
+        driver.get("https://automationfc.github.io/basic-form/index.html");
+        System.out.println("Driver ID automationfc = " + driver.toString());
+
+        // Window/Tab mới - driver nhảy qua Windows/Tab mới này nhưng ko có tạo ra driver mới
+//        WebDriver googleDriver = driver.switchTo().newWindow(WindowType.WINDOW);
+//        googleDriver.get("https://www.google.com.vn/");
+        driver.switchTo().newWindow(WindowType.TAB).get("https://www.facebook.com/");
+        System.out.println("Driver ID Facebook = " + driver.toString());
+        System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
+
+        driver.findElement(By.cssSelector("input#email")).sendKeys("dam@gmail.com");
+        sleepInSeconds(3);
+
+        // Tại cái window này - new Tab mới - driver nhảy qua cái Tab mới đó
+        driver.switchTo().newWindow(WindowType.TAB).get("https://www.lazada.vn/");
+        System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
+
+        driver.findElement(By.xpath("//input[@placeholder='Search in Lazada']")).sendKeys("Selenium");
+        sleepInSeconds(3);
+
+        // Bắt buộc phải switch về trang home
+        switchToWindowByTitle("Selenium WebDriver");
+
+        driver.findElement(By.xpath("//a[text()='GOOGLE']")).click();
+        sleepInSeconds(3);
+    }
+
     @AfterClass
     public void afterClass() {
         driver.quit();
@@ -120,7 +151,7 @@ public class Topic_21_Window_Tab {
         // Lấy ra hết tất cả tab/ window ID
         Set<String> allIDs = driver.getWindowHandles();
 
-        // Dùng vòng lapwh duyệt qua từng ID trong Set ở trên
+        // Dùng vòng lặp duyệt qua từng ID trong Set ở trên
         for (String id : allIDs)
             // Kiểm tra điều kiện trước
             if (!id.equals(expectedID)) {
