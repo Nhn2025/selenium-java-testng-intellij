@@ -54,9 +54,9 @@ public class Topic_25_Wait_02_Find_Element {
 
         // Case 3 - ELement không được tìm thấy
         // Chờ hết timeout là 10s
-        // Trong thời gian 10s này cứ mỗi nửa s sẽ tìm lại 1 lần
+        // Trong thời gian 10s này cứ mỗi "nửa s" sẽ tìm lại 1 lần (polling)
         // Nếu tìm lại mà thấy thì cũng trả về element rồi qua step tiếp theo
-        // Nếu tìm lại mà ko thấy thì đánh fail testcase và throw exception: NoSuchElemntException
+        // Nếu tìm lại mà ko thấy thì đánh fail testcase và throw exception: "NoSuchElementException"
         // Các step còn lại ko chạy nữa
         System.out.println("Start step: " + getDayeTimeNow());
         driver.findElement(By.cssSelector("input#not-found"));
@@ -72,7 +72,7 @@ public class Topic_25_Wait_02_Find_Element {
         // Trả về List Element chứa đúng 1 element
         System.out.println("Start step: " + getDayeTimeNow());
         elementList = driver.findElements(By.cssSelector("input#email"));
-        System.out.println("List have: " + elementList.size());
+        System.out.println("List have: " + elementList.size()); // 1
         System.out.println("End step: " + getDayeTimeNow());
 
         // Case 2 - Element được tìm thấy nhưng có nhiều hơn 1
@@ -80,18 +80,18 @@ public class Topic_25_Wait_02_Find_Element {
         // Trả về List Element chứa nhiều element
         System.out.println("Start step: " + getDayeTimeNow());
         elementList = driver.findElements(By.cssSelector("input[type='text'],[type='password']"));
-        System.out.println("List have: " + elementList.size());
+        System.out.println("List have: " + elementList.size()); // 2
         System.out.println("End step: " + getDayeTimeNow());
 
         // Case 3 - ELement không được tìm thấy
         // Chờ hết timeout là 10s
-        // Mỗi bửa s cũng tìm lại 1 lần (polling)
+        // Mỗi "nửa s" cũng tìm lại 1 lần (polling)
         // Nếu trong thời gian tìm lại mà thấy element thì cũng trả về List chứa các element đó
         // Nếu hết thời gian tìm lại mà ko thấy thì trả về List rỗng (empty) và không đánh fail testcase
         // Qua step tiếp theo
         System.out.println("Start step: " + getDayeTimeNow());
         elementList = driver.findElements(By.cssSelector("input#not-found"));
-        System.out.println("List have: " + elementList.size());
+        System.out.println("List have: " + elementList.size()); //0
         System.out.println("End step: " + getDayeTimeNow());
     }
 

@@ -55,12 +55,4 @@ public class Topic_26_Wait_03_Implicit {
     public void afterClass() {
         driver.quit();
     }
-
-    public void sleepInSeconds(long timeInSecond) {
-        try {
-            Thread.sleep(timeInSecond * 1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
