@@ -107,7 +107,7 @@ public class Topic_24_Wait_01_Element_Status {
         driver.findElement(By.xpath("//a[@data-testid='open-registration-form-button']")).click();
         sleepInSeconds(2);
 
-        // Tại thời điểm này element có xuất hiện và mình sẽ findElement
+        // Tại thời điểm này element có xuất hiện và mình sẽ findElement (trong HTML)
         // Attached to the DOM
         WebElement reconfirmEmail = driver.findElement(reconfirmEmailTextbox);
 
