@@ -29,6 +29,7 @@ public class Topic_26_Wait_03_Implicit {
         Assert.assertEquals(driver.findElement(By.cssSelector("div#finish>h4")).getText(), "Hello World!");
     }
 
+    // Bị lỗi do thời gian tìm element > 3s
     @Test
     public void TC_02_Less_Than_5_Second() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -40,6 +41,7 @@ public class Topic_26_Wait_03_Implicit {
         Assert.assertEquals(driver.findElement(By.cssSelector("div#finish>h4")).getText(), "Hello World!");
     }
 
+    // Pass nhưng bị lãng phí
     @Test
     public void TC_03_Getter_Than_5_Second() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
