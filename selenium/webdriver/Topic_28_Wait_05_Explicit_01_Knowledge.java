@@ -35,7 +35,7 @@ public class Topic_28_Wait_05_Explicit_01_Knowledge {
     }
 
     @Test
-    public void TC_01_() {
+    public void TC_01_ExplicitWait() {
         // Chờ cho 1 Alert presence trong HTML/ DOM trước khi thao tác lên
         Alert alert = explicitWait.until(ExpectedConditions.alertIsPresent());
 
@@ -82,7 +82,7 @@ public class Topic_28_Wait_05_Explicit_01_Knowledge {
         // Chò cho 1 element có attribute có giá trị mong đợi (tuyệt đối)
         explicitWait.until(ExpectedConditions.attributeToBe(By.cssSelector("input#search"), "placeholder", "Search entire store here..."));
 
-        // Chờ cho 1 elemnt có attribute khác null
+        // Chờ cho 1 element có attribute khác null
         explicitWait.until(ExpectedConditions.attributeToBeNotEmpty(driver.findElement(By.cssSelector("input#search")), "placeholder"));
 
         explicitWait.until(ExpectedConditions.domAttributeToBe(driver.findElement(By.cssSelector("input#search")), "placeholder", "Search entire strong here..."));
@@ -141,7 +141,7 @@ public class Topic_28_Wait_05_Explicit_01_Knowledge {
         explicitWait.until(ExpectedConditions.urlContains("job/ptn-new-talent-program"));
         explicitWait.until(ExpectedConditions.urlMatches("[^abc]"));
 
-        // Chờ cho 1 điều kiện mà elemnt này nói bị upadte trạng thái - load lại HTML
+        // Chờ cho 1 điều kiện mà element này nó bị update trạng thái - load lại HTML
         explicitWait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.cssSelector(""))));
     }
 
