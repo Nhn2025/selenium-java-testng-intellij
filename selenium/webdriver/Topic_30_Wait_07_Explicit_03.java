@@ -20,7 +20,6 @@ public class Topic_30_Wait_07_Explicit_03 {
 
     WebDriverWait explicitWait;
 
-
     String projectPath = System.getProperty("user.dir");
 
     String hcmName = "tho.jpg";
@@ -84,7 +83,7 @@ public class Topic_30_Wait_07_Explicit_03 {
 
         explicitWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mainUploadSuccessLink a.ajaxLink"))).click();
 
-        // Wait + Verify button Play có tại từng hình được upload
+        // Wait + Verify button Upload có tại từng hình được upload
         Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
                 ("//span[text()='" + hcmName + "']/ancestor::div[contains(@class,'text-md-start')]/following-sibling::div//span[text()='Download']"))).isDisplayed());
         Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
