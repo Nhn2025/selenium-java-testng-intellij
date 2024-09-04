@@ -11,7 +11,6 @@ import java.time.Duration;
 
 public class Topic_04_AlwayRun {
 
-
     WebDriver driver;
 
     @BeforeClass(alwaysRun = true)

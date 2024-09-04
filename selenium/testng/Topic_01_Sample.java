@@ -12,14 +12,12 @@ import java.util.Random;
 
 public class Topic_01_Sample {
 
-
     WebDriver driver;
 
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        //driver.manage().window().maximize();
     }
 
     @Test
