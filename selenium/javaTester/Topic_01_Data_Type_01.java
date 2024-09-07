@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.*;
 
-public class Topic_01_Data_Type {
+public class Topic_01_Data_Type_01 {
     // 1. Kiểu nguyên thủy - Primitive type/ value type (8 loại)
     // Số nguyên
     byte bNumber = 40;
@@ -32,7 +32,7 @@ public class Topic_01_Data_Type {
     // Class
     FirefoxDriver firefoxDriver = new FirefoxDriver();
     Select select = new Select((firefoxDriver.findElement(By.className(""))));
-    Topic_01_Data_Type topic01 = new Topic_01_Data_Type();
+    Topic_01_Data_Type_01 topic01 = new Topic_01_Data_Type_01();
 
     // Interface
     WebDriver driver;
@@ -61,7 +61,7 @@ public class Topic_01_Data_Type {
     // final không cho phép overide (gán) giá trị
     static final String BROWSER_NAME = "Chrome"; // constant
 
-    String teacherName = "Automation FC";
+    static String teacherName = "Automation FC";
 
     // Class kế thừa class: ĐÚNG (extends)
     // Class kế thừa interface ĐÚNG (implements)
@@ -74,12 +74,14 @@ public class Topic_01_Data_Type {
         System.out.println(studentID);
         // browserName = "Edge"; // Báo lỗi
 
+        teacherName.toLowerCase();
+
         // Cách gọi
-        System.out.println(Topic_01_Data_Type.BROWSER_NAME);
+        System.out.println(Topic_01_Data_Type_01.BROWSER_NAME);
         System.out.println(BROWSER_NAME);
 
         // Cần khởi tạo đối tượng do biến không khai báo static
-        Topic_01_Data_Type topic = new Topic_01_Data_Type();
+        Topic_01_Data_Type_01 topic = new Topic_01_Data_Type_01();
         System.out.println(topic.teacherName);
 
         // Block code
