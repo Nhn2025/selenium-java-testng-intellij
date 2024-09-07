@@ -3,16 +3,14 @@ package javaTester;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class Topic_01_Data_Type {
-    // 1. Kiểu nguyên thủy
+    // 1. Kiểu nguyên thủy - Primitive type/ value type (8 loại)
     // Số nguyên
     byte bNumber = 40;
     short sNumber = 3000;
@@ -30,7 +28,7 @@ public class Topic_01_Data_Type {
     // Logic
     boolean status = true;
 
-    // 2. Kiểu tham chiếu
+    // 2. Kiểu tham chiếu - Reference type
     // Class
     FirefoxDriver firefoxDriver = new FirefoxDriver();
     Select select = new Select((firefoxDriver.findElement(By.className(""))));
@@ -43,11 +41,17 @@ public class Topic_01_Data_Type {
     // Object
     Object name = "Automation FC";
 
+    // String
+    String address = "Ho Chi Minh";
+
     // Array (nguyên thủy/ tham chiếu)
-    int [] studentAge = {5, 6, 7};
-    String[] studentName = {"Automation", "Testing"};
+    int[] studentAge = {5, 6, 7};
+    String[] studentName = {address, "Testing"};
 
     //Colection
+    // List/ Set/ Queue/ Map
+    List<WebElement> homePageLinks = driver.findElements(By.cssSelector(""));
+    Set<String> allWindows = driver.getWindowHandles();
     List<String> studentAddress = new ArrayList<String>();
     List<String> studentCity = new LinkedList<>();
     List<String> studentFont = new Vector<>();
