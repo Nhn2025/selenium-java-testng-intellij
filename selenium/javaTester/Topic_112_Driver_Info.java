@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
-public class Topic_12_Driver_Info {
+public class Topic_112_Driver_Info {
 
     WebDriver driver;
 

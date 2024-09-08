@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.*;
 
-public class Topic_01_Data_Type_01 {
+public class Topic_01_Data_Type {
     // 1. Kiểu nguyên thủy - Primitive type/ value type (8 loại)
     // Số nguyên
     byte bNumber = 40;
@@ -32,7 +32,7 @@ public class Topic_01_Data_Type_01 {
     // Class
     FirefoxDriver firefoxDriver = new FirefoxDriver();
     Select select = new Select((firefoxDriver.findElement(By.className(""))));
-    Topic_01_Data_Type_01 topic01 = new Topic_01_Data_Type_01();
+    Topic_01_Data_Type topic01 = new Topic_01_Data_Type();
 
     // Interface
     WebDriver driver;
@@ -77,11 +77,11 @@ public class Topic_01_Data_Type_01 {
         teacherName.toLowerCase();
 
         // Cách gọi
-        System.out.println(Topic_01_Data_Type_01.BROWSER_NAME);
+        System.out.println(Topic_01_Data_Type.BROWSER_NAME);
         System.out.println(BROWSER_NAME);
 
         // Cần khởi tạo đối tượng do biến không khai báo static
-        Topic_01_Data_Type_01 topic = new Topic_01_Data_Type_01();
+        Topic_01_Data_Type topic = new Topic_01_Data_Type();
         System.out.println(topic.teacherName);
 
         // Block code

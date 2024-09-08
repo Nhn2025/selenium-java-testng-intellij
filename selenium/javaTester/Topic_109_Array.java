@@ -1,6 +1,6 @@
 package javaTester;
 
-public class Topic_09_Array {
+public class Topic_109_Array {
     int[] studentAge = {15, 10, 20, 22};
 
     static String[] studentName = {"Nguyễn Văn An", "Lê Văn Hoà"};

@@ -1,6 +1,6 @@
 package javaTester;
 
-public class Topic_01_Compare_02 {
+public class Topic_02_Compare {
     int number;
 
     public static void main(String[] args) {
@@ -18,8 +18,8 @@ public class Topic_01_Compare_02 {
         System.out.println("x = " + x);
         System.out.println("y = " + y);
 
-        Topic_01_Compare_02 firstVariable = new Topic_01_Compare_02();
-        Topic_01_Compare_02 secondVariable = firstVariable;
+        Topic_02_Compare firstVariable = new Topic_02_Compare();
+        Topic_02_Compare secondVariable = firstVariable;
 
         System.out.println("Before = " + firstVariable.number);
         System.out.println("Before = " + secondVariable.number);

@@ -2,7 +2,7 @@ package javaTester;
 
 import org.testng.annotations.Test;
 
-public class Topic_10_SetterGetter {
+public class Topic_110_SetterGetter {
 
     private String fullName;
 
