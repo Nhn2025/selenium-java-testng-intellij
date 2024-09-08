@@ -3,7 +3,7 @@ package javaTester;
 public class Topic_04_Primitive_Casting {
 
     public static void main(String[] args) {
-        // Ngầm địn= ko mất dữ liệu
+        // Ngầm định = ko mất dữ liệu
 //        byte bNumber = 126;
 //        System.out.println(bNumber);
 //
