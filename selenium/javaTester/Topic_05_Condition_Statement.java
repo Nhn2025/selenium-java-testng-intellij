@@ -66,7 +66,7 @@ public class Topic_05_Condition_Statement {
         }
     }
 
-    @Test
+//    @Test
     public void TC_02_If_Else() {
         // Có tới 2 điều kiện: nếu đúng thì vào if, sai vào else
 
@@ -89,8 +89,11 @@ public class Topic_05_Condition_Statement {
 
     // Chạy qua xml do không biết parameter
     @Parameters("browser")
-    @Test
+    // @Test
     public void TC_03_If_Else_If_ELse(String browserName) {
+        // Có nhiều điều kiện
+        // Best Practice: ko nên if-else quá nhiều
+
         if (browserName.equalsIgnoreCase("chrome"))
             driver = new ChromeDriver();
         else if (browserName.equalsIgnoreCase("firefox"))
@@ -106,5 +109,39 @@ public class Topic_05_Condition_Statement {
         System.out.println(driver.toString());
 
         driver.quit();
+    }
+
+    @Test
+    public void Tc_04_If_Else_If_Else() {
+        // Page Object
+        // Dynamic Page
+
+        String pageName = "Login";
+
+        if (pageName.equals("Login")) {
+            // LoginPage loginPage = new LoginPage()
+            // return loginPage;
+        } else if (pageName.equals("Register")) {
+            // RegisterPage registerPage = new RegisterPage()
+            // return registerPage;
+        } else if (pageName.equals("New Customer")) {
+            // CustomerPage customerPage = new CustomerPage()
+            // return customerPage;
+        } else {
+            // HomePage homePage = new HomePage()
+            // return homePage;
+        }
+
+        // if-else
+        int age = 20;
+        String access = (age < 18) ? "You can not access" : "Welcome to our system";
+
+        if (age < 18) {
+            access = "You can not access";
+        } else {
+            access = "Welcome to our system!";
+        }
+
+        System.out.println(access);
     }
 }
