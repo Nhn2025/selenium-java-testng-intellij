@@ -4,28 +4,28 @@
     <test name="Run on Firefox">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
-            <class name="javaTester.Topic_05_Condition_Statement"/>
+            <class name="javaTester.Topic_06_Switch_Case"/>
         </classes>
     </test>
 
     <test name="Run on Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="javaTester.Topic_05_Condition_Statement"/>
+            <class name="javaTester.Topic_06_Switch_Case"/>
         </classes>
     </test>
 
     <test name="Run on Edge">
         <parameter name="browser" value="edge"></parameter>
         <classes>
-            <class name="javaTester.Topic_05_Condition_Statement"/>
+            <class name="javaTester.Topic_06_Switch_Case"/>
         </classes>
     </test>
 
     <test name="Run on IE">
         <parameter name="browser" value="ie"></parameter>
         <classes>
-            <class name="javaTester.Topic_05_Condition_Statement"/>
+            <class name="javaTester.Topic_06_Switch_Case"/>
         </classes>
     </test>
 
