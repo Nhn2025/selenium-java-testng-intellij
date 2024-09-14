@@ -21,7 +21,7 @@ public class Topic_07_For_Foreach {
         }
 
         // Vế 1: biến tạm dùng để tăng giá trị lên sau mỗi lần duyệt
-        // DUùng để so sánh vs tổng giá trị
+        // Dùng để so sánh vs tổng giá trị
         // Vế 2: So sánh với tổng
         // Vế 3: Tăng i lên 1 đơn vị sau khi chạy vào thân vòng for
 
@@ -36,7 +36,7 @@ public class Topic_07_For_Foreach {
         // Biến đếm dùng để điều kiện filter
         for (int i = 0; i < cityName.length; i++) {
             if (cityName[i].equals("Da Nang")) {
-                System.out.println("Do atcion"); //Action
+                System.out.println("Do action"); //Action
                 break;
             }
         }
@@ -47,7 +47,7 @@ public class Topic_07_For_Foreach {
         // Array
         String[] cityName = {"Ha Noi", "Ho Chi Minh", "Da Nang", "Can Tho"};
 
-        // Java Cllection
+        // Java Collection
         // Class: ArrayList/ LinkedList...
         // Interface: List/ Set/ Queue
         List<String> cityAddress = new ArrayList<String>();
@@ -74,7 +74,7 @@ public class Topic_07_For_Foreach {
         // Java Generic
         List<WebElement> links = driver.findElements(By.xpath("//a"));
 
-        // Xử lí dữ liệu/ get text/ value/ css/attributte
+        // Xử lí dữ liệu/ get text/ value/ css/ attributte
         for(WebElement link : links) {
             // Chuyển page
             // Refresh DOM, HTML
