@@ -38,8 +38,10 @@ public class Topic_01_Data_Type {
     WebDriver driver;
     JavascriptExecutor jsExecutor;
 
-    // Object
+    // Kiểu Object (đại diện cho các kiểu dữ liệu khác)
+    // Đối tượng -> chuyển đổi qua các kiểu dữ liệu khác
     Object name = "Automation FC";
+    Object age = 15;
 
     // String
     String address = "Ho Chi Minh";
