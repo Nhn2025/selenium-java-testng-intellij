@@ -44,6 +44,7 @@ public class Topic_02_Selenium_Locator {
 
     @Test
     public void TC_04_TagName() {
+        // Tìm nhiều element giống nhau
         driver.findElements(By.tagName("Input"));
     }
 
@@ -55,7 +56,10 @@ public class Topic_02_Selenium_Locator {
 
     @Test
     public void TC_06_Partial_LinkText() {
-        // Độ chính xác không cáp = tương đối = 1 phần (đầu, giữa, cuối)
+        // Chỉ dùng với đường link có text
+        // Truyền hết cả chuỗi text vào cũng chạy được
+        // Truyền 1 phần chuỗi text vào cũng chạy được
+        // Độ chính xác không cao = tương đối = 1 phần (đầu, giữa, cuối)
         driver.findElements(By.partialLinkText("vendor account"));
     }
 
@@ -71,6 +75,12 @@ public class Topic_02_Selenium_Locator {
         driver.findElement(By.cssSelector("div.page-title"));
         driver.findElement(By.cssSelector(".page-title"));
 
+        // NGOẠI LỆ (class nhiều giá trị bên trong phân cách khoảng trắng)
+        // Nhiều class chỉ lấy 1 class (khi viết tắt)
+        // Nghĩ " " đi qua nhiều thẻ
+        // Hoặc cách nhau bằng .
+        driver.findElement(By.cssSelector(".input-text.required-entry"));
+
         // Css vs Name
         driver.findElement(By.cssSelector("input[name='FirstName']"));
 
@@ -78,6 +88,7 @@ public class Topic_02_Selenium_Locator {
         driver.findElement(By.cssSelector("input"));
 
         // Css vs Link
+        // Css ko dùng được với text
         driver.findElement(By.cssSelector("a[href='/customer/addresses']"));
 
         // Css vs Partial Link
@@ -105,6 +116,7 @@ public class Topic_02_Selenium_Locator {
         driver.findElement(By.xpath("//a[text()='Addresses']"));
 
         // XPath vs Partial Link
+        // Xpath không support với ends-with (Css có)
         driver.findElement(By.xpath("//a[contains(@href,'addresses')]"));
         driver.findElement(By.xpath("//a[contains(text(),'Addresses')]"));
     }
