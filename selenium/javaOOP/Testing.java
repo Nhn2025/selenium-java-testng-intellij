@@ -2,7 +2,7 @@ package javaOOP;
 
 import com.beust.ah.A;
 
-public class Testing extends Annimal {
+public class Testing {
 
 //    public static void main(String[] args) {
 //        // Truy cập trực tiếp từ tên Class
