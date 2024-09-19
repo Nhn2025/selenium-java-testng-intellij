@@ -1,18 +1,38 @@
 package javaOOP;
 
-public class Testing {
+import com.beust.ah.A;
+
+public class Testing extends Annimal {
+
+//    public static void main(String[] args) {
+//        // Truy cập trực tiếp từ tên Class
+//        // Không cần phải tạo instance/ object
+//        // Không nên lạm dụng tạo các biến static
+//        System.out.println(Topic_04_Non_Access_Modifier.browserName);
+//
+//        // Khởi tạo các Class
+//        Topic_04_Non_Access_Modifier.sendkeyToElement("Link");
+//
+//        Topic_04_Non_Access_Modifier topic = new Topic_04_Non_Access_Modifier();
+//        System.out.println(topic.colorCar);
+//
+//        String studnetName = "112225";
+//
+//        // Không báo lỗi trong quá trình compile
+//        // Ko đúng convention/ ko đúng chuẩn/ vi phạm chuẩn của Java sẽ báo lỗi ngay
+//
+//        // 2 loại lỗi
+//        // Lỗi Compiler: Trong quá trình viết code sẽ báo lỗi
+//        // Lỗi Runtime: Trong quá trinhf run system/ run testcase
+//    }
+//
+//    // Lớp Lồng
+//    public static class NestedTesting {
+//
+//    }
 
     public static void main(String[] args) {
-        Topic_01_Class_Object_Student firstStudent = new Topic_01_Class_Object_Student();
 
-        // Instance variable
-        firstStudent.studentID = 1564564;
-
-        System.out.println(Topic_02_Variable_Property.studentAddress);
-
-        Topic_02_Variable_Property.studentAddress = "Ha Noi";
-
-        Topic_03_Method.showCarColor();
     }
 
 }

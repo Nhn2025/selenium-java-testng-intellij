@@ -18,8 +18,6 @@ public class Topic_03_Method {
         // Gọi qua instance/ object
         Topic_03_Method obj = new Topic_03_Method();
         obj.showCarName();
-
-
     }
 
 }

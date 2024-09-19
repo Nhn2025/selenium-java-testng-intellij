@@ -42,7 +42,7 @@ public class Topic_01_Class_Object_Student {
         return (this.knowledgePoint + this.praticePoint * 2) / 3;
     }
 
-    private  void showStudentInfor() {
+    private void showStudentInfor() {
         System.out.println("**********************************");
         System.out.println("Student ID = " + getStudentID());
         System.out.println("Student Name = " + getStudentName());
