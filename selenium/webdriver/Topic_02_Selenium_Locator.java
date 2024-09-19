@@ -117,6 +117,7 @@ public class Topic_02_Selenium_Locator {
 
         // XPath vs Partial Link
         // Xpath không support với ends-with (Css có)
+        driver.findElements(By.xpath("//a[starts-with(@href,'/customer')]"));
         driver.findElement(By.xpath("//a[contains(@href,'addresses')]"));
         driver.findElement(By.xpath("//a[contains(text(),'Addresses')]"));
     }
