@@ -13,5 +13,4 @@ public abstract class Annimal {
     // Bắt buộc các class con phải override các hàm này lại
     protected abstract void setAnnimalName();
 
-
 }
