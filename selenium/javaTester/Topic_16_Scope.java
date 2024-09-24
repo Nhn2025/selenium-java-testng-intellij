@@ -6,9 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
-public class Topic_04_Scope {
+public class Topic_16_Scope {
     // Các biến được khai báo ở bên ngoài hàm -> phạm vi là Class
     // Biến Global (toàn cục)
     // Có thể dùng cho tất cả các hàm trong 1 Class đó

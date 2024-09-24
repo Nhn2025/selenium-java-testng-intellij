@@ -2,7 +2,7 @@ package javaTester;
 
 import java.util.Random;
 
-public class Topic_06_Random {
+public class Topic_18_Random {
     // Java Builtin (Cung cấp sẵn - lấy ra sử dụng)
     // Java Libraries (Do 1 cá nhân/ tổ chức họ tự viết)
 

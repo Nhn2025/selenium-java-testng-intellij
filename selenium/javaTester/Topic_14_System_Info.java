@@ -5,7 +5,7 @@ import org.openqa.selenium.Platform;
 
 import java.io.File;
 
-public class Topic_03_System_Info {
+public class Topic_14_System_Info {
     public static void main(String args[]) {
 
         // Lấy ra đường dẫn tương đối tại thư mục hiện tại

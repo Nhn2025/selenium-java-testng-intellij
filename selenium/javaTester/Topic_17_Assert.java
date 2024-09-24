@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Topic_05_Assert {
+public class Topic_17_Assert {
 
     WebDriver driver;
 

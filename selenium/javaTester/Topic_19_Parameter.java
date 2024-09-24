@@ -1,6 +1,6 @@
 package javaTester;
 
-public class Topic_08_Parameter {
+public class Topic_19_Parameter {
 
     static String fullNameGlobal = "Automation Testing";
 

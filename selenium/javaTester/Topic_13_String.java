@@ -3,9 +3,8 @@ package javaTester;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
 
-public class Topic_12_String {
+public class Topic_13_String {
 
     public static  void main(String[] args) {
         String firstName = "Automation";

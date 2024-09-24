@@ -3,7 +3,7 @@ package javaTester;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Topic_115_Generic {
+public class Topic_24_Generic {
 
     public static void main(String[] args) {
         // Generic: List chỉ chứa kiểu dữ liệu String

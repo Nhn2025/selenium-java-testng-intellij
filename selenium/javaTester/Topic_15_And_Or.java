@@ -1,6 +1,6 @@
 package javaTester;
 
-public class Topic_02_And_Or {
+public class Topic_15_And_Or {
 
     public static void main(String[] args) {
         // Member 1
