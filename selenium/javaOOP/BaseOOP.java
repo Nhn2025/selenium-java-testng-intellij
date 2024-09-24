@@ -23,7 +23,6 @@ public class BaseOOP extends SeleniumWebDriver {
 
     public void setImplicitWait() {
         driver.manage().timeouts().implicitlyWait(longTimeOut, TimeUnit.SECONDS);
-
     }
 
 }

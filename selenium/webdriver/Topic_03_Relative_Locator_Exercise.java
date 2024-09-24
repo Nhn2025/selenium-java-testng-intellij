@@ -45,7 +45,6 @@ public class Topic_03_Relative_Locator_Exercise {
                 .above(By.id("tax_class_id")));
 
         priceFromELement.sendKeys("100");
-
     }
 
     @Test

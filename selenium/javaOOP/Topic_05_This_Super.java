@@ -67,7 +67,6 @@ public class Topic_05_This_Super extends  BaseOOP {
 
     public static void main(String[] args) {
         Topic_05_This_Super topic = new Topic_05_This_Super();
-
     }
 
 }
