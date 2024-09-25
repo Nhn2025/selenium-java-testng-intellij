@@ -49,5 +49,4 @@ public class Topic_06_Getter_Setter {
         this.personBankAccountAmount = personBankAccountAmount;
     }
 
-
 }
