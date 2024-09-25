@@ -17,5 +17,4 @@ public class Student extends Person implements IWork {
         System.out.println("Làm việc 3 tiếng");
     }
 
-
 }
