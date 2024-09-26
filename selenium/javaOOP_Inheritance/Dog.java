@@ -1,6 +1,6 @@
 package javaOOP_Inheritance;
 
-public class Dog extends Annimal {
+public class Dog extends Animal {
 
     private int age;
 

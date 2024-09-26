@@ -1,6 +1,6 @@
 package javaOOP_Inheritance;
 
-public class Test extends Annimal {
+public class Test extends Animal {
 
     public static void main(String[] args) {
         Dog dog = new Dog();
