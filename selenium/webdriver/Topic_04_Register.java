@@ -14,10 +14,6 @@ public class Topic_04_Register {
 
     WebDriver driver;
 
-    String projectPath = System.getProperty("user.dir");
-
-    String osName = System.getProperty("os.name");
-
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
