@@ -9,9 +9,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-public class Topic_04_XPath_Css {
+public class Topic_04_Register {
 
     WebDriver driver;
 
@@ -49,6 +48,8 @@ public class Topic_04_XPath_Css {
         Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Vui lòng nhập số điện thoại.");
     }
 
+    // Bị fail do message nhập lại email hiển thị không đúng
+    // Báo dev sửa lại
     @Test
     public void Register_02_Invalid_Email_Address() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
@@ -60,10 +61,12 @@ public class Topic_04_XPath_Css {
         driver.findElement(By.id("txtPassword")).sendKeys("123456");
         driver.findElement(By.id("txtCPassword")).sendKeys("123456");
         driver.findElement(By.id("txtPhone")).sendKeys("0388465783");
+
         driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
 
         // Verify
         Assert.assertEquals(driver.findElement(By.id("txtEmail-error")).getText(), "Vui lòng nhập email hợp lệ");
+        Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Vui lòng nhập lại email hợp lệ");
     }
 
     @Test
@@ -129,7 +132,7 @@ public class Topic_04_XPath_Css {
     public void Register_06_Invalid_Phone_Number() {
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 
-        // Phone less than 10 chars
+        // Case 1 - Phone less than 10 chars
         driver.findElement(By.id("txtFirstname")).sendKeys("Joe Biden");
         driver.findElement(By.id("txtEmail")).sendKeys("joe@biden.com");
         driver.findElement(By.id("txtCEmail")).sendKeys("joe@biden.com");
@@ -141,7 +144,7 @@ public class Topic_04_XPath_Css {
         // Verify
         Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Số điện thoại phải từ 10-11 số.");
 
-        // Phone more than 11 chars
+        // Case 2 - Phone more than 11 chars
         driver.findElement(By.id("txtPhone")).clear();
         driver.findElement(By.id("txtPhone")).sendKeys("038263527426");
         driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
@@ -149,7 +152,15 @@ public class Topic_04_XPath_Css {
         // Verify
         Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Số điện thoại phải từ 10-11 số.");
 
-        // Phone # Phone Center number
+        // Case 3 - Contains text
+        driver.findElement(By.id("txtPhone")).clear();
+        driver.findElement(By.id("txtPhone")).sendKeys("038263D26");
+        driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
+
+        // Verify
+        Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Vui lòng nhập con số");
+
+        // Case 4 - Not start With 0xxx
         driver.findElement(By.id("txtPhone")).clear();
         driver.findElement(By.id("txtPhone")).sendKeys("12345678910");
         driver.findElement(By.xpath("//button[text()='ĐĂNG KÝ' and @type='submit']")).click();
