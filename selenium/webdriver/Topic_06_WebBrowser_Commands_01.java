@@ -114,7 +114,6 @@ public class Topic_06_WebBrowser_Commands_01 {
 
         // Test Responsive (Resolution)
         driver.manage().window().setSize(new Dimension(1366, 768));
-
         driver.manage().window().getSize();
 
         // Set cho browser ở vị trí nào so với độ phân giải màn hình (run trên màn hình có kích thước bao nhiêu)
