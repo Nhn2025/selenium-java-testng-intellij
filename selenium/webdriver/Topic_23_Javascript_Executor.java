@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_23_JavascriptExecutor {
+public class Topic_23_Javascript_Executor {
 
     WebDriver driver;
 

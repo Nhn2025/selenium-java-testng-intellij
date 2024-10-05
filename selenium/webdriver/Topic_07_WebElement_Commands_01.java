@@ -27,7 +27,7 @@ public class Topic_07_WebElement_Commands_01 {
 
     @Test
     public void TC_01_ELement() {
-        // Dủng để xóa dữ liệu trong 1 field cho phép nhập (editable)
+        // Dùng để xóa dữ liệu trong 1 field cho phép nhập (editable)
         // Textbox/ TexArea/ Dropdowm (Editable)
         // Thường được sử dụng trước hàm sendKeys để đảm bảo tính toàn vẹn
         driver.findElement(By.id("")).clear(); // *

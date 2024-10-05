@@ -154,7 +154,7 @@ public class Topic_21_Window_Tab {
         // Dùng vòng lặp duyệt qua từng ID trong Set ở trên
         for (String id : allIDs)
             // Kiểm tra điều kiện trước
-            if (!id.equals(expectedID)) {
+            if (id.equals(expectedID)) {
 
                 // Rồi mới switch sau
                 driver.switchTo().window(id);
