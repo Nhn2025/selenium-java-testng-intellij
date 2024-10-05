@@ -189,7 +189,7 @@ public class Topic_10_Custom_Dropdown {
         sleepInSeconds(1);
 
         List<WebElement> allItems = explicitWait.until(ExpectedConditions.
-                presenceOfAllElementsLocatedBy(By.cssSelector(childItemCss)));;
+                presenceOfAllElementsLocatedBy(By.cssSelector(childItemCss)));
         for (WebElement item : allItems) {
             if (item.getText().equals(itemTextExpected)) {
                 item.click();
