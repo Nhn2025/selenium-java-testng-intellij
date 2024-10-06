@@ -21,7 +21,7 @@ public class Topic_05_Xpath_Tech {
     }
 
     @Test
-    public void TC_01_() {
+    public void TC_01_Text() {
         driver.get("http://live.techpanda.org/index.php/mobile.html");
 
         // text()
@@ -74,6 +74,24 @@ public class Topic_05_Xpath_Tech {
         // Count()
         // Lấy element cuối cùng
         driver.findElement(By.xpath("//ol[@id='selectable']/li[count(//li)]"));
+    }
+
+    @Test
+    public void TC_02_Axes() {
+        driver.get("http://live.techpanda.org/index.php/mobile.html");
+
+        // parent, following-sibling
+        driver.findElement(By.xpath("//a[text()='IPhone']/parent::h2/following-sibling::div[@class='actions']/button"));
+        driver.findElement(By.xpath("//a[@title='Samsung Galaxy']/parent::h2/following-sibling::div[@class='actions']//a[@class='link-compare']"));
+
+        // preceding-sibling
+        driver.findElement(By.xpath("//a[text()='IPhone']/parent::h2/parent::div/preceding-sibling::a"));
+
+        // ancestor
+        driver.findElement(By.xpath("//a[@title='IPhone']/ancestor::div[@class='product-info']//span[text()='Add to Cart']"));
+
+        // descendant
+        driver.findElement(By.xpath("//a[@title='IPhone']/ancestor::div[@class='product-info']/descendant::*"));
     }
 
     @AfterClass
