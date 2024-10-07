@@ -23,7 +23,7 @@ public class Topic_18_Popup_02 {
     }
 
     @Test
-    public void TC_01_Random_Not_In_DOM() {
+    public void TC_01_Random_In_DOM() {
         driver.get("https://www.javacodegeeks.com/");
         // sleep cứng 10s để bật popup
         sleepInSeconds(10);

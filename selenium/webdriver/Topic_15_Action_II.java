@@ -48,7 +48,7 @@ public class Topic_15_Action_II {
     }
 
     @Test
-    public void TC_02_Click_And_Hold_Romdom() {
+    public void TC_02_Click_And_Hold_Random() {
         driver.get("https://automationfc.github.io/jquery-selectable/");
 
         List<WebElement> allNumber = driver.findElements(By.cssSelector("ol#selectable>li"));

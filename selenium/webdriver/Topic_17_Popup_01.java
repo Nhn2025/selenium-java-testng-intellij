@@ -23,7 +23,7 @@ public class Topic_17_Popup_01 {
     }
 
     @Test
-    public void TC_01_Fixed_Popup_In_DOM_01() {
+    public void TC_01_Fixed_Popup_Not_In_DOM_01() {
         driver.get("https://ngoaingu24h.vn/");
 
         driver.findElement(By.xpath("//button[text()='Đăng nhập']")).click();
