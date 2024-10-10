@@ -106,7 +106,7 @@ public class Topic_23_Javascript_Executor {
     @Test
     public void TC_03_Techpanda_Create_Account() {
         navigateToUrlByJS("http://live.techpanda.org/");
-        sleepInSecond(2);
+        sleepInSeconds(2);
 
         hightlightElement("//button[@title='Subscribe']");
         clickToElementByJS("//div[@id='header-account']//a[text()='My Account']");
@@ -143,7 +143,6 @@ public class Topic_23_Javascript_Executor {
         Assert.assertEquals(executeForBrowser("return document.domain;"), "live.techpanda.org");
     }
 
-
     @AfterClass
     public void afterClass() {
         driver.quit();
@@ -174,30 +173,22 @@ public class Topic_23_Javascript_Executor {
         jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
-    public void sleepInSecond(int timeout) {
-        try {
-            Thread.sleep(timeout * 1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public void navigateToUrlByJS(String url) {
         jsExecutor.executeScript("window.location = '" + url + "'");
-        sleepInSecond(3);
+        sleepInSeconds(3);
     }
 
     public void hightlightElement(String locator) {
         WebElement element = getElement(locator);
         String originalStyle = element.getAttribute("style");
         jsExecutor.executeScript("arguments[0].setAttribute('style', arguments[1])", element, "border: 2px solid red; border-style: dashed;");
-        sleepInSecond(2);
+        sleepInSeconds(2);
         jsExecutor.executeScript("arguments[0].setAttribute('style', arguments[1])", element, originalStyle);
     }
 
     public void clickToElementByJS(String locator) {
         jsExecutor.executeScript("arguments[0].click();", getElement(locator));
-        sleepInSecond(3);
+        sleepInSeconds(3);
     }
 
     public void scrollToElementOnTop(String locator) {
