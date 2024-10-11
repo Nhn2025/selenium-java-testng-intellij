@@ -29,7 +29,7 @@ public class Topic_03_Relative_Locator {
 
     @Test
     public void TC_01_Relative() {
-        driver.get("https://demo.nopcommerce.com/login?returnUrl=%2Fregister");
+        driver.get("http://demo.nopcommerce/login");
 
         // Login button
         By loginButtonBy = By.cssSelector("button.login-button");

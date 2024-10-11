@@ -29,17 +29,20 @@ public class Topic_34_Wait_10_PageReady {
     // Fail do trang mới thêm captcha
     @Test
     public void TC_01_Admin_NopCommerce() {
-        driver.get("https://admin-demo.nopcommerce.com/");
+        driver.get("http://demo.nopcommerce/login?returnUrl=%2F");
 
         driver.findElement(By.cssSelector("input#Email")).clear();
-        driver.findElement(By.cssSelector("input#Email")).sendKeys("admin@yourstore.com");
+        driver.findElement(By.cssSelector("input#Email")).sendKeys("nhu@automationfc.vn");
 
         driver.findElement(By.cssSelector("input#Password")).clear();
-        driver.findElement(By.cssSelector("input#Password")).sendKeys("admin");
+        driver.findElement(By.cssSelector("input#Password")).sendKeys("nhu@automationfc.vn");
         driver.findElement(By.cssSelector("button.login-button")).click();
         // Sleep cho hiện loading icon
         sleepInSeconds(2);
 
+        Assert.assertTrue(isPageLoadedSuccess());
+
+        explicitWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".administration"))).click();
         Assert.assertTrue(isPageLoadedSuccess());
 
         explicitWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[contains(@class,'fa-user')]/following-sibling::p"))).click();
@@ -55,7 +58,7 @@ public class Topic_34_Wait_10_PageReady {
         Assert.assertTrue(isPageLoadedSuccess());
 
         driver.findElement(By.xpath("//a[text()='Logout']")).click();
-        Assert.assertTrue(driver.findElement(By.xpath("//strong[text()='Welcome, please sign in!']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//h2[text()='Welcome to our store']")).isDisplayed());
     }
 
     // Tại sao dùng implicit cũng pass

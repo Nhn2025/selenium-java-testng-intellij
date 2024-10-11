@@ -23,7 +23,7 @@ public class Topic_02_Selenium_Locator {
         driver = new FirefoxDriver();
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.get("https://demo.nopcommerce.com/register");
+        driver.get("http://demo.nopcommerce/register");
     }
 
     @Test
@@ -39,7 +39,7 @@ public class Topic_02_Selenium_Locator {
 
     @Test
     public void TC_03_Name() {
-        driver.findElement(By.name("DateOfBirthDay"));
+        driver.findElement(By.name("Gender"));
     }
 
     @Test
@@ -79,7 +79,7 @@ public class Topic_02_Selenium_Locator {
         // Nhiều class chỉ lấy 1 class (khi viết tắt)
         // Nghĩ " " đi qua nhiều thẻ
         // Hoặc cách nhau bằng .
-        driver.findElement(By.cssSelector(".input-text.required-entry"));
+        driver.findElement(By.cssSelector(".button-1.register-next-step-button"));
 
         // Css vs Name
         driver.findElement(By.cssSelector("input[name='FirstName']"));

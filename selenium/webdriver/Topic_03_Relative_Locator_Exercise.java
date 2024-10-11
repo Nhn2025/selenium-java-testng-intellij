@@ -49,7 +49,7 @@ public class Topic_03_Relative_Locator_Exercise {
 
     @Test
     public void TC_02_NopCommerce_Register() {
-        driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
+        driver.get("http://demo.nopcommerce.com/register?returnUrl=%2F");
 
         // Gender
         driver.findElement(By.xpath("//label[contains(text(), 'Gender')]"));
@@ -73,16 +73,17 @@ public class Topic_03_Relative_Locator_Exercise {
         driver.findElement(By.xpath("//input[@id='LastName']"));
 
         // Date of birth Label
-        driver.findElement(By.xpath("//label[contains(text(), 'Date of birth')]"));
+        // NopCommerce trên localhost khác UI trên web (web bổ sung ngày sinh)
+        // driver.findElement(By.xpath("//label[contains(text(), 'Date of birth')]"));
 
         // Day Select
         driver.findElement(By.xpath("//select[@name='DateOfBirthDay']"));
 
         // Month Select
-        driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"));
+        // driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"));
 
         // Year Select
-        driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"));
+        // driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"));
 
         // Email Label
         driver.findElement(By.xpath("//label[contains(text(), 'Email')]"));
