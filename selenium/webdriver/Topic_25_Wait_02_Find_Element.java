@@ -40,17 +40,17 @@ public class Topic_25_Wait_02_Find_Element {
         // Sẽ không cần chờ hết timeout
         // Tìm thấy sẽ trả về 1 WebElement
         // Qua step tiếp theo
-        System.out.println("Start step: " + getDayeTimeNow());
+        System.out.println("Start step: " + getDayTimeNow());
         driver.findElement(By.cssSelector("input#email"));
-        System.out.println("End step: " + getDayeTimeNow());
+        System.out.println("End step: " + getDayTimeNow());
 
         // Case 2 - Element được tìm thấy nhưng có nhiều hơn 1
         // Sẽ không cần chờ hết timeout
         // Lấy cái element đầu tiên dù có cả n node
         // Qua step tiếp theo
-        System.out.println("Start step: " + getDayeTimeNow());
+        System.out.println("Start step: " + getDayTimeNow());
         driver.findElement(By.cssSelector("input[type='text'],[type='password']")).sendKeys("nhu@gmail.com");
-        System.out.println("End step: " + getDayeTimeNow());
+        System.out.println("End step: " + getDayTimeNow());
 
         // Case 3 - ELement không được tìm thấy
         // Chờ hết timeout là 10s
@@ -58,9 +58,9 @@ public class Topic_25_Wait_02_Find_Element {
         // Nếu tìm lại mà thấy thì cũng trả về element rồi qua step tiếp theo
         // Nếu tìm lại mà ko thấy thì đánh fail testcase và throw exception: "NoSuchElementException"
         // Các step còn lại ko chạy nữa
-        System.out.println("Start step: " + getDayeTimeNow());
+        System.out.println("Start step: " + getDayTimeNow());
         driver.findElement(By.cssSelector("input#not-found"));
-        System.out.println("End step: " + getDayeTimeNow());
+        System.out.println("End step: " + getDayTimeNow());
     }
 
     @Test
@@ -70,18 +70,18 @@ public class Topic_25_Wait_02_Find_Element {
         // Case 1 - Element được tìm thấy chỉ có 1
         // Ko cần chờ hết timeout 10s
         // Trả về List Element chứa đúng 1 element
-        System.out.println("Start step: " + getDayeTimeNow());
+        System.out.println("Start step: " + getDayTimeNow());
         elementList = driver.findElements(By.cssSelector("input#email"));
         System.out.println("List have: " + elementList.size()); // 1
-        System.out.println("End step: " + getDayeTimeNow());
+        System.out.println("End step: " + getDayTimeNow());
 
         // Case 2 - Element được tìm thấy nhưng có nhiều hơn 1
         // Ko cần chờ hết timeout 10s
         // Trả về List Element chứa nhiều element
-        System.out.println("Start step: " + getDayeTimeNow());
+        System.out.println("Start step: " + getDayTimeNow());
         elementList = driver.findElements(By.cssSelector("input[type='text'],[type='password']"));
         System.out.println("List have: " + elementList.size()); // 2
-        System.out.println("End step: " + getDayeTimeNow());
+        System.out.println("End step: " + getDayTimeNow());
 
         // Case 3 - ELement không được tìm thấy
         // Chờ hết timeout là 10s
@@ -89,10 +89,10 @@ public class Topic_25_Wait_02_Find_Element {
         // Nếu trong thời gian tìm lại mà thấy element thì cũng trả về List chứa các element đó
         // Nếu hết thời gian tìm lại mà ko thấy thì trả về List rỗng (empty) và không đánh fail testcase
         // Qua step tiếp theo
-        System.out.println("Start step: " + getDayeTimeNow());
+        System.out.println("Start step: " + getDayTimeNow());
         elementList = driver.findElements(By.cssSelector("input#not-found"));
         System.out.println("List have: " + elementList.size()); //0
-        System.out.println("End step: " + getDayeTimeNow());
+        System.out.println("End step: " + getDayTimeNow());
     }
 
     @AfterClass
@@ -100,7 +100,7 @@ public class Topic_25_Wait_02_Find_Element {
         // driver.quit();
     }
 
-    public String getDayeTimeNow() {
+    public String getDayTimeNow() {
         Date date = new Date();
         return date.toString();
     }
