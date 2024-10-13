@@ -74,7 +74,6 @@ public class Topic_32_Wait_Fluent_Example {
         fluentDriver.withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofMillis(400))
                 .ignoring(java.util.NoSuchElementException.class, TimeoutException.class)
-
                 .until(new Function<WebDriver, Boolean>() {
                     @Override
                     public Boolean apply(WebDriver webDriver) {

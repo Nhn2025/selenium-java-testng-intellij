@@ -71,15 +71,15 @@ public class Topic_28_Wait_05_Explicit_01_Knowledge {
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(""))));
 
         // Kết hợp điều kiện - 1 trong 2 điều kiện đúng
-        explicitWait.until(ExpectedConditions.and(
+        explicitWait.until(ExpectedConditions.or(
                 ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("")),
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(""))));
 
-        // Chò cho 1 element có attribute chứa giá trị mong đợi (tương đối)
+        // Chờ cho 1 element có attribute chứa giá trị mong đợi (tương đối)
         explicitWait.until(ExpectedConditions.attributeContains(By.cssSelector("input#search"), "placeholder", "Search entire store here..."));
         explicitWait.until(ExpectedConditions.attributeContains(By.cssSelector("input#search"), "placeholder", "store here..."));
 
-        // Chò cho 1 element có attribute có giá trị mong đợi (tuyệt đối)
+        // Chờ cho 1 element có attribute có giá trị mong đợi (tuyệt đối)
         explicitWait.until(ExpectedConditions.attributeToBe(By.cssSelector("input#search"), "placeholder", "Search entire store here..."));
 
         // Chờ cho 1 element có attribute khác null
