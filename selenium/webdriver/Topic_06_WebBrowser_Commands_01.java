@@ -87,7 +87,12 @@ public class Topic_06_WebBrowser_Commands_01 {
         driver.manage().getCookies(); // *
 
         // Get ra những log ở Dev Tool - Framwork
+        // Selenium Log: Browser/ Driver/ Network
         driver.manage().logs().get(LogType.DRIVER); // *
+        driver.manage().logs().get(LogType.BROWSER);
+        driver.manage().logs().get(LogType.CLIENT);
+        driver.manage().logs().get(LogType.PERFORMANCE);
+        driver.manage().logs().getAvailableLogTypes();
 
         // Apply cho việc tìm element (findElement và findElements)
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // **
@@ -125,11 +130,13 @@ public class Topic_06_WebBrowser_Commands_01 {
         driver.navigate().refresh();
         driver.navigate().forward();
 
-        // Thao tác vs history của web page (back/ forward)
+        // Thao tác vs "history" của web page (back/ forward)
         driver.navigate().to("https://www.facebook.com/");
         driver.navigate().to(new URL("https://www.facebook.com/"));
 
         // Alert/ Window (Tab)/  Frame (iFrame) // *
+        // driver.switchTo() trả về kiểu TargetLocator
+        WebDriver.TargetLocator switchTo = driver.switchTo();
         driver.switchTo().alert().accept();
         driver.switchTo().alert().dismiss();
         driver.switchTo().alert().getText();
