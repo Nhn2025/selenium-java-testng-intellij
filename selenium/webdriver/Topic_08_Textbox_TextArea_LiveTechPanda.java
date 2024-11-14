@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Topic_08_Textbox_TextArea {
+public class Topic_08_Textbox_TextArea_LiveTechPanda {
 
     WebDriver driver;
 
