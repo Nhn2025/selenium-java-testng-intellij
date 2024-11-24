@@ -3,6 +3,10 @@ package webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -11,12 +15,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Topic_09_Default_Dropdown {
 
     WebDriver driver;
+
+    Select select;
 
     String firstName = "Kevin", lastName = "Lamping", emailAddress = getmailAddress();
 
@@ -26,13 +33,23 @@ public class Topic_09_Default_Dropdown {
 
     @BeforeClass
     public void beforeClass() {
-        driver = new FirefoxDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--user-data-dir=C:/Users/ADMIN/AppData/Local/Google/Chrome/User Data/");
+        chromeOptions.addArguments("--profile-directory=Profile 27");
+        driver = new ChromeDriver(chromeOptions);
+
+//        EdgeOptions edgeOptions = new EdgeOptions();
+//        edgeOptions.addArguments("--user-data-dir=C:/Users/ADMIN/AppData/Local/Microsoft/Edge/User Data/");
+//        edgeOptions.addArguments("--profile-directory=Profile 3");
+//        driver = new EdgeDriver(edgeOptions);
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.get("https://demo.nopcommerce.com/register");
+        driver.manage().window().maximize();
     }
 
     @Test
     public void TC_01_Register() {
+        driver.get("https://demo.nopcommerce.com/register");
         driver.findElement(By.cssSelector("a.ico-register")).click();
 
         driver.findElement(By.id("FirstName")).sendKeys(firstName);
@@ -66,7 +83,7 @@ public class Topic_09_Default_Dropdown {
 
     @Test
     public void TC_02_Login() {
-        driver.get("https://demo.nopcommerce.com/");
+        driver.get("https://demo.nopcommerce.com");
 
         // Logout
         driver.findElement(By.cssSelector("a.ico-logout")).click();
@@ -92,6 +109,32 @@ public class Topic_09_Default_Dropdown {
 
         Assert.assertEquals(driver.findElement(By.cssSelector("input#Email")).getAttribute("value"), emailAddress);
         Assert.assertEquals(driver.findElement(By.cssSelector("input#Company")).getAttribute("value"), companyName);
+    }
+
+    @Test
+    public void TC_03() {
+        driver.get("https://egov.danang.gov.vn/reg");
+
+        select = new Select(driver.findElement(By.cssSelector("select#thuongtru_tinhthanh")));
+        select.selectByVisibleText("tỉnh Bình Thuận");
+        sleepInSeconds(4);
+
+        // Lấy ra được item vừa chọn và verify
+        Assert.assertEquals(select.getFirstSelectedOption().getText(), "tỉnh Bình Thuận");
+
+        // Kiểm tra 1 dropdown là single hay multiple
+        Assert.assertFalse(select.isMultiple());
+
+        // Lấy ra tất cả các item bên trong dropdown quận/ huyện
+        select = new Select(driver.findElement(By.cssSelector("select#thuongtru_quanhuyen")));
+        List<WebElement> districtElements = select.getOptions();
+        List<String> districtText = new ArrayList<String>();
+
+        for (WebElement district : districtElements)
+            districtText.add(district.getText());
+
+        Assert.assertTrue(districtText.contains("thành phố Phan Thiết"));
+        Assert.assertTrue(districtText.contains("huyện Tuy Phong"));
     }
 
     @AfterClass
