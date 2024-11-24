@@ -65,7 +65,7 @@ public class Topic_28_Wait_05_Explicit_01_Knowledge {
         explicitWait.until(ExpectedConditions.titleIs("Create New Customer Account"));
         driver.getTitle();
 
-        // Kết hợp nhiều điều kiện - 2 điều kiện đề đúng
+        // Kết hợp nhiều điều kiện - 2 điều kiện đều đúng
         explicitWait.until(ExpectedConditions.and(
                 ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("")),
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(""))));
