@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -65,11 +66,13 @@ public class Topic_10_Custom_Dropdown {
     public void TC_02_React() {
         driver.get("https://react.semantic-ui.com/maximize/dropdown-example-selection/");
 
-        selectItemInDropdown("i.dropdown.icon", "div.visible.menu.transition span", "Christian");
+        // Dùng Xpath
+        selectItemInDropdown_Xpath("//i[@class='dropdown icon']", "//div[@class='visible menu transition']//span", "Christian");
         //div.item>span.text
         Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Christian");
         sleepInSeconds(3);
 
+        // Dùng Css
         selectItemInDropdown("i.dropdown.icon", "div.visible.menu.transition span", "Jenny Hess");
         Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Jenny Hess");
         sleepInSeconds(3);
@@ -132,6 +135,14 @@ public class Topic_10_Custom_Dropdown {
         sleepInSeconds(2);
     }
 
+    @Test
+    public void TC_06_Huawei() {
+        driver.get("https://id5.cloud.huawei.com/CAS/portal/userRegister/regbyemail.html");
+        selectItemInHuawaiDropdown("div[ht='input_emailregister_dropdown']", "input[ht='input_emailregister_search']", "ul.hwid-list-module span", "South Korea");
+
+        Assert.assertEquals(driver.findElement(By.cssSelector("div[ht='input_emailregister_dropdown']>span")).getText(), "South Korea");
+    }
+
     @AfterClass
     public void afterClass() {
         driver.quit();
@@ -175,10 +186,45 @@ public class Topic_10_Custom_Dropdown {
             // Nếu trường hợp element click chọn xong rồi các item còn lại sẽ ko còn trong HTML nữa thì
             // hàm getText sẽ bị fail
             // 3 - Kiểm tra text của từng item và thỏa điều kiện thì click vào
-            if (item.getText().equals(itemTextExpected)) {
+            if (item.getText().trim().equals(itemTextExpected)) {
                 // Click sẽ đóng dropdown list
                 item.click();
                 break; // Thoát vòng lặp (for/ while/ do-while/ switch-case
+            }
+        }
+    }
+
+    public void selectItemInDropdown_Xpath(String parentXpath, String childItemXpath, String itemTextExpected) {
+        driver.findElement(By.xpath(parentXpath)).click();
+        sleepInSeconds(1);
+
+        List<WebElement> allItems = explicitWait.until(ExpectedConditions.
+                presenceOfAllElementsLocatedBy(By.xpath(childItemXpath)));
+
+        for (WebElement item : allItems) {
+            if (item.getText().trim().equals(itemTextExpected)) {
+                item.click();
+                break;
+            }
+        }
+    }
+
+    public void selectItemInHuawaiDropdown(String parentCss, String editTableLocator, String childItemCss, String itemTextExpected) {
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.
+                elementToBeClickable(By.cssSelector(parentCss)));
+        driver.findElement(By.cssSelector(parentCss)).click();
+        sleepInSeconds(1);
+
+        driver.findElement(By.cssSelector(editTableLocator)).clear();
+        driver.findElement(By.cssSelector(editTableLocator)).sendKeys(itemTextExpected);
+
+        List<WebElement> allItems = explicitWait.until(ExpectedConditions.
+                presenceOfAllElementsLocatedBy(By.cssSelector(childItemCss)));
+
+        for (WebElement item : allItems) {
+            if (item.getText().trim().equals(itemTextExpected)) {
+                item.click();
+                break;
             }
         }
     }

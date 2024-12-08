@@ -33,15 +33,27 @@ public class Topic_09_Default_Dropdown {
 
     @BeforeClass
     public void beforeClass() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--user-data-dir=C:/Users/ADMIN/AppData/Local/Google/Chrome/User Data/");
-        chromeOptions.addArguments("--profile-directory=Profile 27");
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver();
+
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--user-data-dir=C:/Users/ADMIN/AppData/Local/Google/Chrome/User Data/");
+//        chromeOptions.addArguments("--profile-directory=Profile 27");
+//        driver = new ChromeDriver(chromeOptions);
 
 //        EdgeOptions edgeOptions = new EdgeOptions();
 //        edgeOptions.addArguments("--user-data-dir=C:/Users/ADMIN/AppData/Local/Microsoft/Edge/User Data/");
 //        edgeOptions.addArguments("--profile-directory=Profile 3");
 //        driver = new EdgeDriver(edgeOptions);
+
+        // Tắt location hiện lên
+//        ChromeOptions option = new ChromeOptions();
+//        options.addArguments("--disable-geolocation");
+//        driver = new ChromeDriver(options);
+
+//        FirefoxOptions option = new FirefoxOptions();
+//        option.addPreference("geo.enabled", false);
+//        option.addPreference("geo.provider.use_corelocation", false);
+//        driver = new FirefoxDriver(option);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
@@ -112,7 +124,7 @@ public class Topic_09_Default_Dropdown {
     }
 
     @Test
-    public void TC_03() {
+    public void TC_03_Egov() {
         driver.get("https://egov.danang.gov.vn/reg");
 
         select = new Select(driver.findElement(By.cssSelector("select#thuongtru_tinhthanh")));
@@ -135,6 +147,27 @@ public class Topic_09_Default_Dropdown {
 
         Assert.assertTrue(districtText.contains("thành phố Phan Thiết"));
         Assert.assertTrue(districtText.contains("huyện Tuy Phong"));
+    }
+
+    @Test
+    public void TC_06_Rode() {
+        driver.get("https://rode.com/en/support/where-to-buy");
+
+        new Select(driver.findElement(By.cssSelector("select#country")))
+                .selectByVisibleText("Vietnam");
+        sleepInSeconds(3);
+
+        driver.findElement(By.cssSelector("inout#map_search_query")).sendKeys("Ho Chi Minh");
+        driver.findElement(By.xpath("//button[text()='Search']")).click();
+        sleepInSeconds(3);
+
+        List<WebElement> dealerBranches = driver.findElements(By.cssSelector("div.dealer_branch h4"));
+        Assert.assertEquals(dealerBranches.size(), 16);
+
+        //For-each
+        for (WebElement dealerName : dealerBranches)
+            System.out.println(dealerName.getText());
+
     }
 
     @AfterClass
