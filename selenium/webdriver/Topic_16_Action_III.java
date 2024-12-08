@@ -170,6 +170,25 @@ public class Topic_16_Action_III {
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
     }
 
+    public void drapAndDrop(By source, By target) {
+        WebElement a = driver.findElement(By.cssSelector("your_selector"));
+        WebElement b = driver.findElement(By.cssSelector("your_selector"));
+
+        int x = b.getLocation().x;
+        int y = b.getLocation().y;
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(a)
+                .pause(Duration.ofSeconds(1))
+                .clickAndHold(a)
+                .pause(Duration.ofSeconds(1))
+                .moveByOffset(x, y)
+                .moveToElement(b)
+                .moveByOffset(x,y)
+                .pause(Duration.ofSeconds(1))
+                .release().build().perform();
+    }
+
     @AfterClass
     public void cleanBrowser() {
         driver.quit();
